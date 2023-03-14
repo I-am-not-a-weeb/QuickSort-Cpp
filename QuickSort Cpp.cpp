@@ -117,7 +117,7 @@ void Onotation(int* arr, int n)
 
 	std::cout << "N = " << n;
 	std::cout << " QuickSort: " << zed1;
-	std::cout << "us QuickSortModified: " << zed2  << std::endl;
+	std::cout << "us QuickSortModified: " << zed2  << "us" << std::endl;
 }
 
 int main()
