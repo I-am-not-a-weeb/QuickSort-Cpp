@@ -67,6 +67,16 @@ void quickSortModified(int* arr, int p, int r)
 	}
 }
 
+void quickSortMod(int* arr, int p, int r)
+{
+	if (p < r)
+	{
+		int q = partition(arr, p, r);
+		quickSortModified(arr, p, q);
+		quickSortModified(arr, q + 1, r);
+	}
+}
+
 int* createArr(int n)
 {
 	int*arr = new int[n];
@@ -109,7 +119,7 @@ void Onotation(int* arr, int n)
 	auto stop1 = std::chrono::high_resolution_clock::now();
 
 	auto start2 = std::chrono::high_resolution_clock::now();
-	quickSortModified(arr2, 0, n);
+	quickSortMod(arr2, 0, n);
 	auto stop2 = std::chrono::high_resolution_clock::now();
 
 	auto zed1 = std::chrono::duration_cast<std::chrono::microseconds>(stop1 - start1).count();
@@ -135,7 +145,7 @@ int main()
 		std::cout << arr[i] << std::endl;
 	}
 	std::cout << "sort" << std::endl;
-	quickSortModified(arr, 0, size);
+	quickSortMod(arr, 0, size);
 	for (int i = 0; i < size; i++)
 	{
 		std::cout << arr[i] << std::endl;
@@ -168,5 +178,6 @@ int main()
 	//std::cout << "Asc: "; Onotation(arr4, 10000); 
 	//std::cout << "Desc: "; Onotation(darr4, 10000);
 	//std::cout << "Rand: "; Onotation(rarr4, 10000);
+	return 0;
 }
 
